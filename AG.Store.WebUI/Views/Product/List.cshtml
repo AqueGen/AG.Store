@@ -1,0 +1,25 @@
+﻿@using AG.Store.Model
+@using AG.Store.WebUI.Extensions
+@model AG.Store.WebUI.ViewModel.ProductsListViewModel
+
+@{
+	Layout = "~/Views/Shared/_Layout.cshtml";
+	ViewBag.Title = "Products";
+}
+
+<div class="menu">
+	<a href="@Url.Action("List", "Product", new { page = 1, category = (string)null})">All products</a>
+	<a href="@Url.Action("List", "Product", new { page = 1, category = "Product"})">Products</a>
+	<a href="@Url.Action("List", "Product", new { page = 1, category = "Game"})">Games</a>
+</div>
+
+@foreach (Product product in @Model.Products)
+{
+	@Html.Partial("ProductSummary", product)
+}
+
+<div>
+	<div>
+		@Html.PageLinks(@Model.PageInfo, x => Url.Action("List", new { page = x, category = @Model.Category }))
+	</div>
+</div>

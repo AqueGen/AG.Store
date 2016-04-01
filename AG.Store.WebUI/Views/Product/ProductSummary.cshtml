@@ -1,0 +1,22 @@
+﻿@model AG.Store.Model.Product
+
+
+<div>
+	<div class="product">
+		<div class="text">
+			<h3>@Model.Name</h3>
+			<p>@Model.Description</p>
+			<p class="price">@Model.Price</p>
+			<p class="button">
+				@using (Html.BeginForm("AddToCart", "Cart"))
+				{
+					<div class="text-center">
+						@Html.HiddenFor(p => p.ProductId)
+						@Html.Hidden("returnUrl", Request.Url.PathAndQuery)
+						<input type="submit" class="btn btn-primary" value="Add to cart"/>
+					</div>
+				}
+			</p>
+		</div>
+	</div>
+</div>
