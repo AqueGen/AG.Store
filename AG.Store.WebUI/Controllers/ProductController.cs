@@ -44,7 +44,7 @@ namespace AG.Store.WebUI.Controllers
                     Description = $"Description of product{i}"
                 });
             }
-            for (int i = 0; i < 5; i++)
+            for (int i = 5; i < 10; i++)
             {
                 list.Add(new Product
                 {
